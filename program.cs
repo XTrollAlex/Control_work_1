@@ -27,13 +27,13 @@ void Main()
     PrintArray(ConvertArray(array));
 }
 
-int ReadInt(string text)
+int ReadInt(string text) //считывание числа из терминала
 {
     System.Console.Write(text);
     return Convert.ToInt32(Console.ReadLine());
 }
 
-string[] FillArray(int num, string[] array)
+string[] FillArray(int num, string[] array) //заполнение массива
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -43,7 +43,7 @@ string[] FillArray(int num, string[] array)
     return array;
 }
 
-string[] ConvertArray(string[] array)
+string[] ConvertArray(string[] array) //преобразование массива
 {
     int maxLength = 3;
     int n = 0;
@@ -64,7 +64,7 @@ string[] ConvertArray(string[] array)
     return result;
 }
 
-void PrintArray(string[] array)
+void PrintArray(string[] array) //вывод массива
 {
     System.Console.WriteLine("[" + string.Join(",  ", array) + "]");
 }
