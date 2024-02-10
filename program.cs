@@ -13,3 +13,60 @@
 // [“Hello”, “2”, “world”, “:-)”] → [“2”, “:-)”]
 // [“1234”, “1567”, “-2”, “computer science”] → [“-2”]
 // [“Russia”, “Denmark”, “Kazan”] → []
+
+void Main()
+{
+    int num = ReadInt("Укажите количество элементов массива: ");
+    string[] array = new string[num];
+    FillArray(num, array);
+    System.Console.WriteLine();
+    System.Console.WriteLine("Исходный массив: ");
+    PrintArray(array);
+    System.Console.WriteLine();
+    System.Console.WriteLine("Измененный массив: ");
+    PrintArray(ConvertArray(array));
+}
+
+int ReadInt(string text)
+{
+    System.Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+string[] FillArray(int num, string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.WriteLine($"Введите {i + 1}-й элемент массива");
+        array[i] = Console.ReadLine()!;
+    }
+    return array;
+}
+
+string[] ConvertArray(string[] array)
+{
+    int maxLength = 3;
+    int n = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= maxLength) n++;
+    }
+    string[] result = new string[n];
+    int j = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= maxLength)
+        {
+            result[j] = array[i];
+            j++;
+        }
+    }
+    return result;
+}
+
+void PrintArray(string[] array)
+{
+    System.Console.WriteLine("[" + string.Join(",  ", array) + "]");
+}
+
+Main();
